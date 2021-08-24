@@ -12,6 +12,7 @@ using std::pair;
 using std::string;
 using std::stringstream;
 using std::ifstream;
+using std::ofstream;
 using std::ios;
 using std::cout;
 using std::endl;
@@ -87,7 +88,9 @@ int main(int argc, char *argv[])
     std::cout << endl << "Time elapsed: " << endTime - startTime << " seconds" << endl << endl << endl << endl;
 
     // testGraph.convert2PCFG(std::cout);
-    testGraph.convert2nltkPCFG(std::cout);
+    ofstream myfile ("grammar.txt");
+    testGraph.convert2nltkPCFG(myfile);
+    myfile.close();
 /*
     startTime = getTime();
     testGraph.distill(ADIOSParams(atof(argv[2]), atof(argv[3])*10, atoi(argv[4])-2, atof(argv[5])));

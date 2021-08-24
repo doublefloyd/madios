@@ -1,1 +1,5 @@
-.ideaMakefile*.o
+.idea
+Makefile
+build/
+*.o
+*.txt
