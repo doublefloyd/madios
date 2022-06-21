@@ -87,10 +87,27 @@ int main(int argc, char *argv[])
 
     std::cout << endl << "Time elapsed: " << endTime - startTime << " seconds" << endl << endl << endl << endl;
 
+    // Print grammar to terminal
     // testGraph.convert2PCFG(std::cout);
-    ofstream myfile ("grammar.txt");
+    
+    // Store the input filename as a string of a variable
+    std::string grammar_filename = argv[1];
+
+    // Create a new output filename based on input filename
+    // Assumption is that input filename begins with 
+    // string "training_corpus".
+    // Replace those 15 characters from 0th index with "grammar"
+    // to create the new, custom output filename.
+    grammar_filename.replace(0, 15, "grammar");
+    // Print the output filename for verification
+    cout << grammar_filename << endl;
+
+    // Save grammar to a .txt file saved with the new name
+    // just created
+    ofstream myfile (grammar_filename); //"grammar.txt"
     testGraph.convert2nltkPCFG(myfile);
     myfile.close();
+
 /*
     startTime = getTime();
     testGraph.distill(ADIOSParams(atof(argv[2]), atof(argv[3])*10, atoi(argv[4])-2, atof(argv[5])));

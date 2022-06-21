@@ -8,7 +8,7 @@ Although it does not affect the correctness of the grammar produced by the curre
 Usage:
 ModifiedADIOS <filename> <eta> <alpha> <context_size> <coverage> ---OPTIONAL--- <number_of_new_sequences>
 
-<filename>,     file name of the input corpus
+<filename>,     file name of the input corpus. The filename should begin with the string "training_corpus"
 <eta>,          threshold of detecting divergence in the RDS graph, usually set to 0.9
 <alpha>,        significance test threshold, usually set to 0.01 or 0.1
 <context_size>, size of the context window used for search for Equivalence Class, usually set to 5 or 4, a value less 3 will mean that no                 equivalence class can be found.
@@ -16,6 +16,7 @@ ModifiedADIOS <filename> <eta> <alpha> <context_size> <coverage> ---OPTIONAL--- 
 
 the optional parameter <number_of_new_sequences> asks the executable to generate new sentences from the distilled grammar.
 
+The output produced by this code will be a file containing the grammar. It will be a .txt file whose name begins with the string "grammar".
 
 An example raw corpus file (* and # are the start and end delimiters):
 
